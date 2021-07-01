@@ -102,9 +102,11 @@
   The following command is used to do synthesis
   
               run_synthesis
+              
   ![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/2.PNG)
   
   The below folders contains different reports for each stage.
+  
   ![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/4.PNG)
   
   From the reports we can find the flop ratio and the buffer ratio.
@@ -147,26 +149,55 @@ Once the synthesis is completed ,next step is the floorplan. For that the below 
 ![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/floorplan_1.PNG)
 
 
-## Viewing Floorplan in Magic
+### Viewing Floorplan in Magic
 
-To view our floorplan in Magic we need to provide three files as input:
+To view the floorplan on Magic,the following inputs are needed:
 
   1.Magic technology file (sky130A.tech)
-  2.Def file of floorplan
+  2..def file of floorplan
   3.Merged LEF file
 
 ![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/1_floorplan.PNG)
 ![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/floorplan_2.PNG)
 
-## Placement
+During the floorplan stage, IO pins are placed equidistantly. On the Magic tool, keep the cursor on the any IO pin ans press 's' and type 'what' on tkon window. The what command queries what material is in the current selection.
+
+Reference http://opencircuitdesign.com/magic/userguide.html.
+
+![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/floorplan_4.PNG)
+
+### Placement
 
 The next step in the Digital ASIC design flow after floorplanning is placement. The synthesized netlist OpenLANE does placement in two stages:
 
 Global Placement - Optimized but not legal placement. Optimization works to reduce wirelength by reducing half parameter wirelength
 Detailed Placement - Legalizes placement of cells into standard cell rows while adhering to global placement
 
-To do placement in OpenLANE:
+To do placement in OpenLANE the following command is used.
 
+      run_placement
+
+ ### Viewing Placement in Magic
+ 
+The placement can be viewed on Magic tool as:
+
+![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/1_placement.PNG)
+![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/2_placement.PNG)
+
+      
+ During the run_placement, global placement is happening. The standard cells will be placed as shown in next figure.
+ 
+![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/std%20cells1.PNG)
+
+### Standard Cell Design Flow
+
+Cell design is done in 3 parts:
+
+   a. Inputs - PDKs (Process design kits), DRC & LVS rules, SPICE models, library & user-defined specs.
+   
+   b. Design Steps - This involves Circuit Design, Layout Design, Characterization. The software GUNA used for characterization. The characterization can be classified as   Timing, Power and Noise characterization.
+   
+   c. Outputs - Outputs of the Design are CDL (Circuit Description Language), GDSII, LEF, extracted Spice netlist (.cir), timing, noise, power.libs, function.
 
   
   
