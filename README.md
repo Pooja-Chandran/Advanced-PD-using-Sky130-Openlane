@@ -82,8 +82,20 @@
   **7.GDSII Generation**
         
         a.Magic - GDSII Layout is generated from routed def
-        
-        
+ 
+### Skywater PDK Files
+
+The Skywater PDK files we are working with are described under pdks directory. There are three subdirectories needed for the workshop:
+
+![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/12.PNG)
+
+1. Skywater-pdk – Contains all the PDK related files.
+2. Open_pdks – Contains scripts and files that converts foundry level pdksto be compatible with open-source EDA tools.
+3. Sky130A – The open-source compatible PDK files.
+
+
+### Invoking OpenLANE
+
  The first lab was to synthesise the RTL code of a picorv32a in the interactive mode using OpenLANE.
  The command to invoke OpenLANE in interactive mode is: 
               
@@ -173,10 +185,11 @@ Reference http://opencircuitdesign.com/magic/userguide.html.
 
 ### Placement
 
-The next step in the Digital ASIC design flow after floorplanning is placement. The synthesized netlist OpenLANE does placement in two stages:
+After floorplanning, the placement of standard cells is done. The synthesized netlist OpenLANE does placement in two stages:
 
-Global Placement - Optimized but not legal placement. Optimization works to reduce wirelength by reducing half parameter wirelength
-Detailed Placement - Legalizes placement of cells into standard cell rows while adhering to global placement
+Global Placement - Optimized but not legal placement. Optimization works to reduce wirelength by reducing half parameter wirelength.
+
+Detailed Placement - Legalizes placement of cells into standard cell rows while adhering to global placement.
 
 To do placement in OpenLANE the following command is used.
 
