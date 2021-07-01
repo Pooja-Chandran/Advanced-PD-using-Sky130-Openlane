@@ -93,9 +93,9 @@
              
              package require openlane 0.9
              
-  Inorder to prepare design setup files "picorv32a" 
+  Inorder to prepare design setup files 
   
-             prep -design ./designs/picorv32a
+             prep -design picorv32a
              
  ![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/1.PNG)
              
@@ -104,8 +104,72 @@
               run_synthesis
   ![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/2.PNG)
   
-  The 
+  The below folders contains different reports for each stage.
   ![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/4.PNG)
+  
+  From the reports we can find the flop ratio and the buffer ratio.
+  
+  Flop ratio = Number of flipflops/ Total number of the cells.
+  
+  Buffer ratio= Number of buffers/ Total number of the cells.
+  
+  ## Day2: Floorplan and Placement
+  
+1.The first step of physical design is to define the width and height of the die and core. Each silicon wafer contains several number of dies so that yield is maximum. A die contains a core region where the logic is placed.
+
+While building a chip, two terms needs to be understood- utilization factor and aspect ratio.
+
+Utilization factor = area occupied by the netlist/total area of the core.
+
+Aspect ratio= height of core/ width of the core.
+
+2. Defining the location of preplaced cells
+
+Some logic can be implemented once and instantiated many times on to a netlist. These logic are functionally implemented only once. These logic receives some input and generates corresponding output logic. This is a part of the top level netlist. And these cells are called preplaced cells, since these logics are implemented only once. The location for these cells need to be defined and this is done before the placement and routing. The placement of these cells will be fixed on a top level chip. Since they are done before the placement, they are called pre placed cells. These cells will not be touched by the APR tools.
+
+3. Using Decoupling capacitors
+
+If the circuit is physically far away from the supply voltage, the output logic may not be the expected value. The switching activity in the circuit may not be within the noise margin. Inorder to avoid this, we can use a decoupling capacitor.
+These capacitors are huge capacitors fully filled with charges. The voltage across the capacitor is almost equivalent to the charge across the power supply. If a circuit is connected to a decoupling capacitor, the current is supplied by the capacitor. The capacitor decouples the circuit from the power supply. The preplaced cells will be provided with decoupling capacitors so that they get supply from these capacitor. This will ensure that no switching activity gets missed and there will be no crosstalk problems.
+
+4.Powerplanning
+
+A single power supply connected to large number of circuits will result in voltage droop or ground bounce, when the circuits switches. Power planning ensures there is no ground bounce and voltage droop. During power planning, power and ground straps are laid in such a way that they form a mesh structure and each logic can tap power or drop the power to respective rails. 
+
+5. Pin Placement
+
+The pin placement is done in according to the logic. So the RTL team defines the netlist connectivity, the PD team will do the pin placement. The clock ports are bigger in size since clock ports drives the chip. So as the port size increases, the resistance increases. Now the APR tool should not place any cells where the pins are placed. The area should be blocked so that APR tool will not place any cells there.
+
+Once the synthesis is completed ,next step is the floorplan. For that the below command is used
+
+        run_floorplan
+
+![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/floorplan_1.PNG)
+
+
+## Viewing Floorplan in Magic
+
+To view our floorplan in Magic we need to provide three files as input:
+
+  1.Magic technology file (sky130A.tech)
+  2.Def file of floorplan
+  3.Merged LEF file
+
+![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/1_floorplan.PNG)
+![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/floorplan_2.PNG)
+
+## Placement
+
+The next step in the Digital ASIC design flow after floorplanning is placement. The synthesized netlist OpenLANE does placement in two stages:
+
+Global Placement - Optimized but not legal placement. Optimization works to reduce wirelength by reducing half parameter wirelength
+Detailed Placement - Legalizes placement of cells into standard cell rows while adhering to global placement
+
+To do placement in OpenLANE:
+
+
+  
+  
           
 
  
