@@ -96,9 +96,14 @@
   Inorder to prepare design setup files 
   
              prep -design picorv32a
-             
+       
+                
  ![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/1.PNG)
-             
+ 
+  During this command, the cell level lef and the technology lef are merged into one. So this merge file will have cell and metal layer informations.
+  
+ ![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/11.PNG)
+ 
   The following command is used to do synthesis
   
               run_synthesis
@@ -117,7 +122,7 @@
   
   ## Day2: Floorplan and Placement
   
-1.The first step of physical design is to define the width and height of the die and core. Each silicon wafer contains several number of dies so that yield is maximum. A die contains a core region where the logic is placed.
+1. The first step of physical design is to define the width and height of the die and core. Each silicon wafer contains several number of dies so that yield is maximum. A die contains a core region where the logic is placed.
 
 While building a chip, two terms needs to be understood- utilization factor and aspect ratio.
 
