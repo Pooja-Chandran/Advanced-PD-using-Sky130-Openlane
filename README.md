@@ -1,6 +1,6 @@
 # Advanced-PD-using-Sky130-Openlane
 
-![FIG:1](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/Advanced-Physical-Design-using-OpenLANE_Sky130_1.png)
+![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/Advanced-Physical-Design-using-OpenLANE_Sky130_1.png)
 
 **CONTENTS**
 
@@ -85,20 +85,29 @@
         
         
  The first lab was to synthesise the RTL code of a picorv32a in the interactive mode using OpenLANE.
- The script ot invoke OpenLANE in interactive mode is: 
+ The command to invoke OpenLANE in interactive mode is: 
+              
               ./flow.tcl -interactive
   
   Include the package by using the below command
+             
              package require openlane 0.9
              
-  After that you need to prepare your design files "picorv32a" with below command
+  Inorder to prepare design setup files "picorv32a" 
+  
              prep -design ./designs/picorv32a
              
-  When the design is prepared run syntheis by using below command
+ ![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/1.PNG)
+             
+  The following command is used to do synthesis
+  
               run_synthesis
+  ![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/2.PNG)
+  
+  The 
+  ![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/4.PNG)
           
-  Finally we need check the total area occupied by picorv32a in form of flipflops, adders, AND, OR gates etc. :
-        ![FIG:3](https://github.com/ripudamank2/OpenLANE-Sky130-Physical-Design-Workshop/blob/main/image.png)
+
  
 
 
