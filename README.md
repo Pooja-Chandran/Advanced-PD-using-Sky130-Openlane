@@ -213,7 +213,7 @@ Cell design is done in 3 parts:
 
    a. Inputs - PDKs (Process design kits), DRC & LVS rules, SPICE models, library & user-defined specs.
    
-   b. Design Steps - This involves Circuit Design, Layout Design, Characterization. The software GUNA used for characterization. The characterization can be classified as   Timing, Power and Noise characterization.
+   b. Design Steps - This involves Circuit Design, Layout Design, Characterization. The software GUNA is used for characterization. The characterization can be classified as   Timing, Power and Noise characterization.
    
    c. Outputs - Outputs of the Design are CDL (Circuit Description Language), GDSII, LEF, extracted Spice netlist (.cir), timing, noise, power.libs, function.
 
