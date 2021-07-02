@@ -303,7 +303,18 @@ Similarly NMOS layers and masks can be seen in the above figure.
 
 PMOS layers and masks can be seen in the above figure.
 
+### PEX Extraction with Magic
+
+To extract the parasitic spice file, an extraction file needs to be created and that can be done by typing following command on tkon:
+        
+        extract all
+        
 ![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/magic7.PNG)
 
+If we check the corresponding directory we can see that the extraction file is created (sky130inv.ext)
+
+
 ![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/magic8.PNG)
+
+After generating the extracted file we need to output the .ext file to a spice file:
 ![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/magic9.PNG)
