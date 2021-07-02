@@ -270,17 +270,17 @@ Switching threshold is the point where Vin=Vout.This depends on the W/L ratio of
 
 ### CMOS INVERTER ngspice SIMULATIONS
 
-The tech file for the magic will be present in the pdk directory and it can be copied to the vsdstdcelldesign directory.
+The tech file for the magic present in the pdk directory is copied to the vsdstdcelldesign directory.
 ![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/stdcell1.PNG)
 
-To view the layout ,the following command is used.
+To view the layout on the magic, the following command is used.
 ![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/stdcell2.PNG)
 
-The layout of the inverter appears in the magic and looks as follows
-![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/stdcell3.PNG)
+![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/stdcell6.PNG)
 
-  
-          
+     
+The layout of the inverter appears in the magic:       
+![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/magic1.PNG)
 
  
 
