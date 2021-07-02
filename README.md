@@ -217,7 +217,43 @@ Cell design is done in 3 parts:
    
    c. Outputs - Outputs of the Design are CDL (Circuit Description Language), GDSII, LEF, extracted Spice netlist (.cir), timing, noise, power.libs, function.
 
-  
+
+## Day3: Design Library Cells
+
+First part is to create SPICE deck. Spice deck is the connectivity information about netlist.
+
+SPICE Deck contains
+    1. Component connectivity
+    2. Component values (W/L),load capacitance, Input and supply voltage
+    3. Identify nodes
+    4. Name the nodes
+    5. Simulation commands
+    6. Describe model file
+
+### Switching Threshold of CMOS
+Switching threshold is the point where Vin=Vout.This depends on the W/L ratio of the PMOS and NMOS transistor.
+
+### 16-mask CMOS process
+
+  1. Select a substrate- Selecting the base layer in which other regions are made.
+
+  2. Create active region for transistors-Create an insulator layer using SiO2 and Si3N2.Pockets are created using photoresist and lithography process.
+
+  3. Formation of N-well and P-well formation-Ion Implantation is used for this purpose.
+
+  4. Creating Gate terminal- For desired threshold,doping Concentration and oxide thickness needs to be set.
+
+  5. Lightly Doped Drain (LDD) formation- LDD is done to avoid short channel effect and hot electron effect.
+
+  6. Source and Drain formation- Formation of the source and drain.
+
+  7. Contacts and local interconnect creation- SiO2 removed using HF etching. Titanium is deposited using sputtering.
+
+  8. Higher Level metal layer formation- Upper metal laters are deposited.
+
+
+
+
   
           
 
