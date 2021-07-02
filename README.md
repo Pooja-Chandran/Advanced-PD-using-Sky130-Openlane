@@ -126,6 +126,8 @@ The Skywater PDK files we are working with are described under pdks directory. T
               
   ![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/2.PNG)
   
+   ![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/10.PNG)
+  
   The below folders contains different reports for each stage.
   
   ![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/4.PNG)
@@ -227,14 +229,21 @@ Cell design is done in 3 parts:
 First part is to create SPICE deck. Spice deck is the connectivity information about netlist.
 
 SPICE Deck contains
-    1. Component connectivity
-    2. Component values (W/L),load capacitance, Input and supply voltage
-    3. Identify nodes
-    4. Name the nodes
-    5. Simulation commands
-    6. Describe model file
 
+    1. Component connectivity
+    
+    2. Component values (W/L),load capacitance, Input and supply voltage
+    
+    3. Identify nodes
+    
+    4. Name the nodes
+    
+    5. Simulation commands
+    
+    6. Describe model file
+    
 ### Switching Threshold of CMOS
+
 Switching threshold is the point where Vin=Vout.This depends on the W/L ratio of the PMOS and NMOS transistor.
 
 ### 16-mask CMOS process
@@ -254,6 +263,7 @@ Switching threshold is the point where Vin=Vout.This depends on the W/L ratio of
   7. Contacts and local interconnect creation- SiO2 removed using HF etching. Titanium is deposited using sputtering.
 
   8. Higher Level metal layer formation- Upper metal laters are deposited.
+
 
 
 
