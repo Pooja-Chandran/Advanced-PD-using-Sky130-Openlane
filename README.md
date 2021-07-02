@@ -316,5 +316,13 @@ If we check the corresponding directory we can see that the extraction file is c
 
 ![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/magic8.PNG)
 
-After generating the extracted file we need to output the .ext file to a spice file:
+After generating the extracted file we need to output the .ext file to a spice file. The following commands can be used:
+
+    ext2spice cthresh 0 rthresh 0
+    ext2spice
+    
 ![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/magic9.PNG)
+
+The SPICE file looks like as follows:
+
+![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/stdcell5.PNG)
