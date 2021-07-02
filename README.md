@@ -40,6 +40,11 @@
   <li> Power Distribution Network and routing
   <li> TritonRoute Features
  </ul>
+ 
+### RTL2GDS OpenLANE ASIC Flow
+OpenLANE is an automated RTL2GDSII flow. It is based on several open source components including OpenROAD, Yosys, Magic, Netgen, Fault, OpenPhySyn, CVC, SPEF-Extractor, Klayout and custom methodology scripts for design exploration and optimization.
+
+ ![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/intro2.PNG)
 
 ## Day1: Introduction to OpenLANE, Sky130 and EDA Tools
  **OpenLANE** is an automated RTL2GDSII flow including many open source softwares.
