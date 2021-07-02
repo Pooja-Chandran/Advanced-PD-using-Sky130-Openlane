@@ -323,6 +323,6 @@ After generating the extracted file we need to output the .ext file to a spice f
     
 ![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/magic9.PNG)
 
-The SPICE file looks like as follows:
+The SPICE deck looks like as follows:
 
 ![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/stdcell5.PNG)
