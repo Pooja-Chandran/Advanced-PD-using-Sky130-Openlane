@@ -326,7 +326,12 @@ After generating the extracted file we need to output the .ext file to a spice f
 The SPICE deck looks like as follows:
 
 ![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/stdcell5.PNG)
+
+Here the SPICE deck is editted according to the layout to run transient analysis as follows
 ![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/ngspice1.PNG)
-![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/ngspice1_.PNG)
+
+The following command is used to invoke ngspice tool
+![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/ngspice1_1.PNG)
+To plot transient analysis output, where y - output node and a - input node
 ![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/ngspice2.PNG)
 ![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/ngspice4.PNG)
