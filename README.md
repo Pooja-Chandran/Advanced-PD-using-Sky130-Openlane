@@ -302,13 +302,6 @@ As in above figure, keep the mouse on the highlighted region and press 's'. Type
 
 As in above figure, keep the mouse on the highlighted region and press 's'. Type 'what' on tkon window, and see that the output Y is selected.
 
-![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/magic5.PNG)
-
-Similarly NMOS layers and masks can be seen in the above figure.
-
-![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/magic6.PNG)
-
-PMOS layers and masks can be seen in the above figure.
 
 ### PEX Extraction with Magic
 
