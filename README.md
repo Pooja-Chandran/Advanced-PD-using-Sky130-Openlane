@@ -114,7 +114,7 @@ The Skywater PDK files we are working with are described under pdks directory. T
              prep -design picorv32a
        
                 
- ![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/1.PNG)
+ ![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/1.JPG)
  
   During this command, the cell level lef and the technology lef are merged into one. So this merge file will have cell and metal layer informations.
   
