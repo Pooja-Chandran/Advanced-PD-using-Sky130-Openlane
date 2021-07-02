@@ -83,6 +83,10 @@
         
         a.Magic - GDSII Layout is generated from routed def
  
+### How to talk to computers?
+
+A RISC-V core computer uses RISC-V Instruction Set Architecture (ISA). If a user wishes to run a certain application software on a computer, its corresponding C/C++/Java program must be converted into assembly language (instructions) by the compliler. These instructions go as inputs to the assembler which outputs binary language in the form of bits. An RTL code for the corresponding function is coded. And through the APR flow GDSII is generated. 
+
 ### Skywater PDK Files
 
 The Skywater PDK files we are working with are described under pdks directory. There are three subdirectories needed for the workshop:
