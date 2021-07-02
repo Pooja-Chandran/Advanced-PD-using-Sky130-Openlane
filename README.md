@@ -294,11 +294,11 @@ When the polysilicion crosses and p diffusion, its an PMOS.
 
 ![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/magic3.PNG)
 
-As in above figure, keep the mouse on the highlighted region and press 's'. Type 'what" on tkon window, and we can see that the above statement holds true.
+As in above figure, keep the mouse on the highlighted region and press 's'. Type 'what' on tkon window, and we can see that the above statement holds true.
 
 ![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/magic4.PNG)
 
-As in above figure, keep the mouse on the highlighted region and press 's'. Type 'what" on tkon window, and we can see that the output Y is selected.
+As in above figure, keep the mouse on the highlighted region and press 's'. Type 'what' on tkon window, and see that the output Y is selected.
 
 ![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/magic5.PNG)
 
