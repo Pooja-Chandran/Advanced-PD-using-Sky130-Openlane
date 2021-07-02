@@ -203,7 +203,7 @@ To do placement in OpenLANE the following command is used.
  
 The placement can be viewed on Magic tool as:
 
-![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/1_placement.PNG)
+![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/placement_1.PNG)
 ![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/2_placement.PNG)
 
       
