@@ -332,6 +332,11 @@ Here the SPICE deck is editted according to the layout to run transient analysis
 
 The following command is used to invoke ngspice tool
 ![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/ngspice1_1.PNG)
-To plot transient analysis output, where y - output node and a - input node
+
 ![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/ngspice2.PNG)
+
+To plot transient analysis:
+
+          plot y vs time a
+          
 ![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/ngspice4.PNG)
