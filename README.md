@@ -275,13 +275,17 @@ The tech file for the magic present in the pdk directory is copied to the vsdstd
 
 To view the layout on the magic, the following command is used.
 ![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/stdcell2.PNG)
-
-![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/stdcell6.PNG)
-
      
 The layout of the inverter appears in the magic:       
 ![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/magic1.PNG)
 
- 
+When the polysilicion crosses and n diffusion, its an NMOS.
+![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/magic2.PNG)
+
+As in above figure, keep the mouse on the highlighted region and press 's'. Type 'what" on tkon window, and we can see that the above statement holds true.
+When the polysilicion crosses and p diffusion, its an PMOS.
+![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/magic3.PNG)
+As in above figure, keep the mouse on the highlighted region and press 's'. Type 'what" on tkon window, and we can see that the above statement holds true.
+![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/magic4.PNG)
 
 
