@@ -123,6 +123,9 @@ The Skywater PDK files we are working with are described under pdks directory. T
   The following command is used to do synthesis
   
               run_synthesis
+          
+  
+  The yosys and ABC tools are used to convert RTL to gate level netlist (GLN).
               
   ![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/2.PNG)
   
@@ -265,8 +268,16 @@ Switching threshold is the point where Vin=Vout.This depends on the W/L ratio of
   8. Higher Level metal layer formation- Upper metal laters are deposited.
 
 
+### CMOS INVERTER ngspice SIMULATIONS
 
+The tech file for the magic will be present in the pdk directory and it can be copied to the vsdstdcelldesign directory.
+![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/stdcell1.PNG)
 
+To view the layout ,the following command is used.
+![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/stdcell2.PNG)
+
+The layout of the inverter appears in the magic and looks as follows
+![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/stdcell3.PNG)
 
   
           
