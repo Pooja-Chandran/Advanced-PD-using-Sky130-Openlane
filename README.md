@@ -340,3 +340,13 @@ To plot transient analysis:
           plot y vs time a
           
 ![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/ngspice4.PNG)
+
+The following timing parameters are calculated.
+
+Rise transition delay = Time taken for the output signal to reach from 20% to 80% of maximum value.
+
+Fall transition delat = Time taken for the output signal to reach from 80% to 20% of maximum value.
+
+Cell rise delay = Time difference between 50% of rising output and 50% of falling output.
+
+Cell fall delay = Time difference between 50% of falling output and 50% of rising output.
