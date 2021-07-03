@@ -1,6 +1,6 @@
 # Advanced-PD-using-Sky130-Openlane
 
-![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/Advanced-Physical-Design-using-OpenLANE_Sky130_1.png)
+![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/images/Advanced-Physical-Design-using-OpenLANE_Sky130_1.png)
 
 **CONTENTS**
 
@@ -48,7 +48,7 @@
 #### RTL2GDS OpenLANE ASIC Flow
 OpenLANE is an automated RTL2GDSII flow. It is based on several open source components including OpenROAD, Yosys, Magic, Netgen, Fault, OpenPhySyn, CVC, SPEF-Extractor, Klayout and custom methodology scripts for design exploration and optimization.
 
- ![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/intro2.png)
+ ![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/images/intro2.png)
  **OpenLANE** is an automated RTL2GDSII flow including many open source softwares.
  
  **1.Synthesis**
@@ -98,7 +98,7 @@ A RISC-V core computer uses RISC-V Instruction Set Architecture (ISA). If a user
 
 The Skywater PDK files we are working with are described under pdks directory. There are three subdirectories needed for the workshop:
 
-![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/12.PNG)
+![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/images/12.PNG)
 
 1. Skywater-pdk – Contains all the PDK related files.
 2. Open_pdks – Contains scripts and files that converts foundry level pdksto be compatible with open-source EDA tools.
@@ -121,11 +121,11 @@ The Skywater PDK files we are working with are described under pdks directory. T
              prep -design picorv32a
        
                 
- ![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/1.JPG)
+ ![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/images/1.JPG)
  
   During this command, the cell level lef and the technology lef are merged into one. So this merge file will have cell and metal layer informations.
   
- ![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/11.PNG)
+ ![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/images/11.PNG)
  
   The following command is used to do synthesis
   
@@ -134,13 +134,13 @@ The Skywater PDK files we are working with are described under pdks directory. T
   
   The yosys and ABC tools are used to convert RTL to gate level netlist (GLN).
               
-  ![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/2.PNG)
+  ![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/images/2.PNG)
   
-   ![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/10.PNG)
+   ![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/images/10.PNG)
   
   The below folders contains different reports for each stage.
   
-  ![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/4.PNG)
+  ![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/images/4.PNG)
   
   From the reports we can find the flop ratio and the buffer ratio.
   
@@ -179,7 +179,7 @@ Once the synthesis is completed ,next step is the floorplan. For that the below 
 
         run_floorplan
 
-![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/floorplan_1.PNG)
+![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/images/floorplan_1.PNG)
 
 
 ### Viewing Floorplan in Magic
@@ -190,14 +190,14 @@ To view the floorplan on Magic,the following inputs are needed:
   2..def file of floorplan
   3.Merged LEF file
 
-![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/1_floorplan.PNG)
-![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/floorplan_2.PNG)
+![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/images/1_floorplan.PNG)
+![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/images/floorplan_2.PNG)
 
 During the floorplan stage, IO pins are placed equidistantly. On the Magic tool, keep the cursor on the any IO pin ans press 's' and type 'what' on tkon window. The what command queries what material is in the current selection.
 
 Reference http://opencircuitdesign.com/magic/userguide.html.
 
-![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/floorplan_4.PNG)
+![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/images/floorplan_4.PNG)
 
 ### Placement
 
@@ -215,13 +215,13 @@ To do placement in OpenLANE the following command is used.
  
 The placement can be viewed on Magic tool as:
 
-![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/placement_1.PNG)
-![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/2_placement.PNG)
+![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/images/placement_1.PNG)
+![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/images/2_placement.PNG)
 
       
  During the run_placement, global placement is happening. The standard cells will be placed as shown in next figure.
  
-![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/std%20cells1.PNG)
+![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/images/std%20cells1.PNG)
 
 ### Standard Cell Design Flow
 
@@ -278,27 +278,27 @@ Switching threshold is the point where Vin=Vout.This depends on the W/L ratio of
 ### CMOS INVERTER ngspice SIMULATIONS
 
 The tech file for the magic present in the pdk directory is copied to the vsdstdcelldesign directory.
-![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/stdcell1.PNG)
+![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/images/stdcell1.PNG)
 
 To view the layout on the magic, the following command is used.
-![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/stdcell2.PNG)
+![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/images/stdcell2.PNG)
      
 The layout of the inverter appears in the magic:       
-![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/magic1.PNG)
+![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/images/magic1.PNG)
 
 When the polysilicion crosses and n diffusion, its an NMOS.
 
-![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/magic2.PNG)
+![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/images/magic2.PNG)
 
 As in above figure, keep the mouse on the highlighted region and press 's'. Type 'what" on tkon window, and we can see that the above statement holds true.
 
 When the polysilicion crosses and p diffusion, its an PMOS.
 
-![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/magic3.PNG)
+![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/images/magic3.PNG)
 
 As in above figure, keep the mouse on the highlighted region and press 's'. Type 'what' on tkon window, and we can see that the above statement holds true.
 
-![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/magic4.PNG)
+![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/images/magic4.PNG)
 
 As in above figure, keep the mouse on the highlighted region and press 's'. Type 'what' on tkon window, and see that the output Y is selected.
 
@@ -309,37 +309,37 @@ To extract the parasitic spice file, an extraction file needs to be created and 
         
         extract all
         
-![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/magic7.PNG)
+![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/images/magic7.PNG)
 
 If we check the corresponding directory we can see that the extraction file is created (sky130inv.ext)
 
 
-![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/magic8.PNG)
+![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/images/magic8.PNG)
 
 After generating the extracted file we need to output the .ext file to a spice file. The following commands can be used:
 
     ext2spice cthresh 0 rthresh 0
     ext2spice
     
-![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/magic9.PNG)
+![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/images/magic9.PNG)
 
 The SPICE deck looks like as follows:
 
-![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/stdcell5.PNG)
+![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/images/stdcell5.PNG)
 
 Here the SPICE deck is editted according to the layout to run transient analysis as follows
-![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/ngspice1.PNG)
+![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/images/ngspice1.PNG)
 
 The following command is used to invoke ngspice tool
-![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/ngspice1_1.PNG)
+![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/images/ngspice1_1.PNG)
 
-![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/ngspice2.PNG)
+![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/images/ngspice2.PNG)
 
 To plot transient analysis:
 
           plot y vs time a
           
-![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/ngspice4.PNG)
+![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/images/ngspice4.PNG)
 
 The following timing parameters are calculated.
 
