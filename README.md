@@ -427,5 +427,5 @@ Run the entire flow and we can see that sky130_vsdinv, is added into the netlist
 We can see this cell in the magic gui once we finish the placement. So if we zoomin we can see sky130_vsdinv.
 ![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/images/day4_13.PNG)
 
-Place the cursor on sky130_vsdinv,press 's'. Type expand on tkon window and we can see the connection of that particular cell to the adjacent cells.
+Place the cursor on sky130_vsdinv,press 's'. Type *expand* on tkon window and we can see the connection of that particular cell to the adjacent cells.
 ![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/images/day4_14.PNG)
