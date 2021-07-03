@@ -412,7 +412,7 @@ Generated LEF file:
 
 To plug this LEF file into picorv32a flow,first we need to copy the lef file and the library files into the /design/src folder, so that all design files are in one folder itself. 
 
-The config.tcl file sets the location where the lef file is present whic is needed for the spice extraction.
+The config.tcl file sets the location where the lef file is present which is needed for the spice extraction.
 
 ![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/images/day4_11.PNG)
 
