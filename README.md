@@ -134,7 +134,7 @@ The Skywater PDK files we are working with are described under pdks directory. T
               run_synthesis
           
   
-  The yosys and ABC tools are used to convert RTL to gate level netlist (GLN).
+  The yosys and ABC tools are used to convert RTL to gate level netlist (GLN). The ABC maps netlist to the cells the library.
               
   ![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/images/2.PNG)
   
@@ -381,13 +381,51 @@ li1 layer (Y) the vertical track is at an offset of  0.17 having a pitch of 0.34
 
 These grids are the routes taken for PNR flow. The grid sizes can be changed according to the track definition
 
-![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/images/day_1.PNG)
+![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/images/day4_1.PNG)
 
 So if we check the below image, the input and output port and on the intersection of horizontal and vertical tracks. So having the ports on horizontal and vertical tracks ensures that routes can reach the ports from X and Y direction.
 
-![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/images/day_2.PNG)
+![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/images/day4_2.PNG)
 
 
 Also if we analyse the below figure, width of the standard cells is odd multiple of horizontal track pitch.
 
-![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/images/day_3.PNG)
+![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/images/day4_3.PNG)
+
+When we extract the lef files ,the ports will be considered as pins.
+
+To extract the lef file, the following command is used on tckon window.
+      
+      lef write
+      
+![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/images/day4_4.PNG)
+
+This will create a new lef file in the corresponding directory with an extension of .lef
+
+![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/images/day4_5.PNG)
+
+The lef file shows that the ports have been assigned as pins and all the changes that were made in magic has been reflected in here. 
+
+Generated LEF file:
+
+![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/images/day4_6.PNG)
+
+To plug this LEF file into picorv32a flow,first we need to copy the lef file and the library files into the /design/src folder, so that all design files are in one folder itself. 
+
+The config.tcl file sets the location where the lef file is present whic is needed for the spice extraction.
+
+![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/images/day4_11.PNG)
+
+The below command is included to add lef into the flow:
+
+![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/images/day4_9.PNG)
+
+Run the entire flow and we can see that sky130_vsdinv, is added into the netlist.
+
+![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/images/day4_10.PNG)
+
+We can see this cell in the magic gui once we finish the placement. So if we zoomin we can see sky130_vsdinv.
+![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/images/day4_13.PNG)
+
+Place the cursor on sky130_vsdinv,press 's'. Type expand on tkon window and we can see the connection of that particular cell to the adjacent cells.
+![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/images/day4_14.PNG)
