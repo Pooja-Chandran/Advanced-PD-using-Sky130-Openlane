@@ -1,6 +1,6 @@
 # Advanced-PD-using-Sky130-Openlane
 
-![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/images/Advanced-Physical-Design-using-OpenLANE_Sky130_1.png)
+![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/images/Advanced-Physical-Design-using-OpenLANE_Sky130_1.PNG)
 
 **CONTENTS**
 
