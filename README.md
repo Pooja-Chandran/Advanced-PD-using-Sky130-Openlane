@@ -46,9 +46,11 @@
 ## Day1: Introduction to OpenLANE, Sky130 and EDA Tools
 
 #### RTL2GDS OpenLANE ASIC Flow
+
 OpenLANE is an automated RTL2GDSII flow. It is based on several open source components including OpenROAD, Yosys, Magic, Netgen, Fault, OpenPhySyn, CVC, SPEF-Extractor, Klayout and custom methodology scripts for design exploration and optimization.
 
  ![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/images/intro2.png)
+ 
  **OpenLANE** is an automated RTL2GDSII flow including many open source softwares.
  
  **1.Synthesis**
@@ -154,9 +156,9 @@ The Skywater PDK files we are working with are described under pdks directory. T
 
 While building a chip, two terms needs to be understood- utilization factor and aspect ratio.
 
-Utilization factor = area occupied by the netlist/total area of the core.
+Utilization factor = Area occupied by the netlist/total area of the core.
 
-Aspect ratio= height of core/ width of the core.
+Aspect ratio= Height of core/ Width of the core.
 
 2. Defining the location of preplaced cells
 
@@ -278,12 +280,15 @@ Switching threshold is the point where Vin=Vout.This depends on the W/L ratio of
 ### CMOS INVERTER ngspice SIMULATIONS
 
 The tech file for the magic present in the pdk directory is copied to the vsdstdcelldesign directory.
+
 ![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/images/stdcell1.PNG)
 
 To view the layout on the magic, the following command is used.
+
 ![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/images/stdcell2.PNG)
      
 The layout of the inverter appears in the magic:       
+
 ![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/images/magic1.PNG)
 
 When the polysilicion crosses and n diffusion, its an NMOS.
@@ -327,10 +332,12 @@ The SPICE deck looks like as follows:
 
 ![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/images/stdcell5.PNG)
 
-Here the SPICE deck is editted according to the layout to run transient analysis as follows
+Here the SPICE deck is editted according to the layout to run transient analysis as follows:
+
 ![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/images/ngspice1.PNG)
 
-The following command is used to invoke ngspice tool
+The following command is used to invoke ngspice tool:
+
 ![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/images/ngspice1_1.PNG)
 
 ![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/images/ngspice2.PNG)
@@ -345,8 +352,42 @@ The following timing parameters are calculated.
 
 Rise transition delay = Time taken for the output signal to reach from 20%-80% of maximum value.
 
-Fall transition delat = Time taken for the output signal to reach from 80%-20% of maximum value.
+Fall transition delay = Time taken for the output signal to reach from 80%-20% of maximum value.
 
 Cell rise delay = Time difference between 50% of rising output and 50% of falling output.
 
 Cell fall delay = Time difference between 50% of falling output and 50% of rising output.
+
+## Day 4: Timing Analysis and Clock Tree Synthesis
+
+### Extracting LEF file
+
+LEF file protects the IP. Extract LEF file out of .mag file. The extracted LEF file will be plugged into picorv32a flow.
+
+Certain guidelines need to be followed while making standard cell set:
+
+1.	The input and output port must lie on the intersection of horizontal and vertical tracks.
+2.	Width of the standard cells must be odd multiple of horizontal tracks pitch. Height must be odd multiple of vertical tracks.
+
+Tracks are used during routing stage. Routes are traces of metals. Only over the routes PNR tool can do routing.
+
+![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/images/day4.PNG)
+
+For example,
+
+li1 layer (X) the horizontal track is at an offset of  0.23 having a pitch of 0.46
+
+li1 layer (Y) the vertical track is at an offset of  0.17 having a pitch of 0.34
+
+These grids are the routes taken for PNR flow. The grid sizes can be changed according to the track definition
+
+![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/images/day_1.PNG)
+
+So if we check the below image, the input and output port and on the intersection of horizontal and vertical tracks. So having the ports on horizontal and vertical tracks ensures that routes can reach the ports from X and Y direction.
+
+![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/images/day_2.PNG)
+
+
+Also if we analyse the below figure, width of the standard cells is odd multiple of horizontal track pitch.
+
+![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/images/day_3.PNG)
