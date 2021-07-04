@@ -542,8 +542,13 @@ The pitch of the metal 1 power rails defines the height of the standard cells
  
  The interconnections are made in the routing stage. The signal pins are connected using metal wires. The netlist provides the logical connectivity and certain rules need to be followed (DRC) which is technology dependent. Routing is done in two stages.
   
-  1.Fast route
+  1.Global route
+  
   2.Detail route
+
+ROUTING_STRATEGY (0-3) uses Triton-13 engine-faster runtime
+
+ROUTING_STRATEGY (14) uses Triton-14 engine-better DRCs, but more runtime
 
 To run routing in OpenLANE execute the command
   
@@ -551,12 +556,7 @@ To run routing in OpenLANE execute the command
  
  ![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/images/route5.PNG) 
  ![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/images/route6.PNG)
-
-ROUTING_STRATEGY (0-3) uses Triton-13 engine-faster runtime
-
-ROUTING_STRATEGY (14) uses Triton-14 engine-better DRCs, but more runtime
-
-![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/images/routing.PNG)
+ ![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/images/routing.PNG)
  We can invoke the magic window  and see the result.
  
  ![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/images/route4.PNG)
