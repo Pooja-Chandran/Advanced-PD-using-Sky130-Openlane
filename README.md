@@ -536,7 +536,19 @@ To run routing in OpenLANE execute the command
   
     run_routing
     
+ We can invoke the magic window  and see the result.
+ 
+ ![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/images/route4.PNG)
+ 
+ So here we can see that all standard cells are placed in the standarc cell rows, they are legalized and routed.
+ 
 ![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/images/route1.PNG)
+
+If we zoom in we can find the sky130_vsdinv, press 's' and type 'what' pn tkon window.
+
 ![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/images/route2.PNG)
+
+Type 'expand on the tkon window, we can see the inverter is conneceted to the adjacanet cells. Pink lines represent the connection.
+
 ![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/images/route3.PNG)
-![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/images/route4.PNG)
+
