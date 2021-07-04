@@ -62,7 +62,7 @@ OpenLANE is an automated RTL2GDSII flow. It is based on several open source comp
         
  **2.Floorplan**
  
-        a. init_fp - Defines the core area for the macro as well as the rows (used for placement) and the tracks (used for routing)
+        a. init_fp - Defines the core area for the macro as well as the rows and the tracks.
         b. ioplacer - Places the macro input and output ports
         c. pdn - Generates the power distribution network
         d. tapcell - Inserts welltap and decap cells in the floorplan
@@ -103,7 +103,7 @@ The Skywater PDK files we are working with are described under pdks directory. T
 ![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/images/12.PNG)
 
 1. Skywater-pdk – Contains all the PDK related files.
-2. Open_pdks – Contains scripts and files that converts foundry level pdksto be compatible with open-source EDA tools.
+2. Open_pdks – Contains scripts and files that converts foundry level pdks to be compatible with open-source EDA tools.
 3. Sky130A – The open-source compatible PDK files.
 
 
@@ -471,16 +471,16 @@ The following command is used to do CTS.
      
 Since clock tree is built, now the clocks can be propogated. Post CTS timing analsysis can be done by writing a .db file from lef and def file. Read the .db file along with liberty file, cts netlist,propogate the clocks and get the reports.
 
-  % read_lef /openLANE_flow/designs/picorv32a/runs/03-07_12-55/tmp/merged.lef
-  % read_def /openLANE_flow/designs/picorv32a/runs/03-07_12-55/results/cts/picorv32a.cts.def
-  % write_db pico.cts.db
-  % read pico.cts.db
-  % read_verilog /openLANE_flow/designs/picorv32a/runs/03-07_12-55/results/synthesis/picorv32a.synthesis_cts.v
-  % read_liberty $::env(LIB_SYNTH_COMPLETE) 
-  % link_design picorv32a
-  % read_sdc ...../src/my_base.sdc
-  % set_propagated_clock [all_clocks]
-  % report_checks -path_delay min_max -format full_clock_expanded -digits 4
+     % read_lef /openLANE_flow/designs/picorv32a/runs/03-07_12-55/tmp/merged.lef
+     % read_def /openLANE_flow/designs/picorv32a/runs/03-07_12-55/results/cts/picorv32a.cts.def
+     % write_db pico.cts.db
+     % read pico.cts.db
+     % read_verilog /openLANE_flow/designs/picorv32a/runs/03-07_12-55/results/synthesis/picorv32a.synthesis_cts.v
+     % read_liberty $::env(LIB_SYNTH_COMPLETE) 
+     % link_design picorv32a
+     % read_sdc ...../src/my_base.sdc
+     % set_propagated_clock [all_clocks]
+     % report_checks -path_delay min_max -format full_clock_expanded -digits 4
    
    ![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/images/cts5.PNG)
     
@@ -488,7 +488,7 @@ After CTS slack is increased. To reduce slack violation we have to edit the vari
 
 ![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/images/cts2.PNG)
 
-We can replace some of the buffers with higher driving strength buffers there by improving the slack. Clock tree optimization is achieved by buffer sizing, gate sizing, buffer relocation, level adjustment and High Fanout Nets synthesis (HFNS).
+We can replace some of the buffers with higher driving strength buffers there by improving the slack. Clock tree optimization is achieved by buffer sizing, buffer relocation, gate sizing, level adjustment and High Fanout Nets synthesis (HFNS).
 
 ## DAY 5: RTL2GDSII
 
@@ -512,7 +512,7 @@ The following commands perform the synthesis to routing:
    
  ### Power Distribution Network
  
-The primary goal in power network design is to provide enough power lines across a chip to reduce voltage drops from the power pads to the center of the chip. Voltage drop is caused by the power network's metal lines coupled with transistor switching currents on the chip cause power supply noises that can affect circuit timing and performance, thus providing a constant challenge for designers of high-performance chips.
+
 
 The PDN feature within OpenLANE will create:
 
@@ -539,19 +539,15 @@ The pitch of the metal 1 power rails defines the height of the standard cells
  ![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/images/pdn2.PNG)
       
  ### Routing
- TritonRoute is used for routing of the designs.It is done in two stages.
-
-1.Global Routing - The input to global router is a floorplan that includes the locations of all fixed and flexible blocks. It generates a loose layout for each net .Assign a list of routing region to each net and without specifying the actual layout of wires .
-
-2.Detailed Routing- Find the actual geometry of each net with in the assigned routing region.
+ 
 
 To run routing in OpenLANE execute the command
   
-   % run_routing
+     % run_routing
     
-ROUTING_STRATEGY (0 to 3) uses Triton-13 engine (faster runtime)
+ROUTING_STRATEGY (0-3) uses Triton-13 engine-faster runtime
 
-ROUTING_STRATEGY (14) uses Triton-14 engine (better DRCs, but more runtime) 
+ROUTING_STRATEGY (14) uses Triton-14 engine-better DRCs, but more runtime
 
  We can invoke the magic window  and see the result.
  
@@ -565,7 +561,7 @@ If we zoom in we can find the sky130_vsdinv, press 's' and type 'what' on tkon w
 
 ![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/images/route2.PNG)
 
-Type 'expand on the tkon window, we can see the inverter is conneceted to the adjacent cells. Pink lines represent the connection.
+Type 'expand' on the tkon window, we can see the inverter is conneceted to the adjacent cells. Pink lines represent the connection.
 
 ![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/images/route3.PNG)
 
