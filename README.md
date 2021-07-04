@@ -224,7 +224,7 @@ The placement can be viewed on Magic tool as:
  During the run_placement, global placement is happening. The standard cells will be placed as shown in next figure.
  
 ![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/images/std%20cells1.PNG)
-
+ 
 ### Standard Cell Design Flow
 
 Cell design is done in 3 parts:
@@ -464,25 +464,32 @@ The switch -overwrite overwrites the existing file 03-07_12-55. Once synthesis i
 ### Clock Tree Synthesis
 The process of connecting clock pins of all sequential cells to the clock net such that clock skew is minimized is called CTS. Clock nets are set as ideal during synthesis and placement. Ideal network means there is no interconnect delys or wire delays are not taken into account. We do so because if we are not setting clock net as ideal, the interconnect delays degrade the clock signal and lead to timing violations, and worst some cells may not get the clock signal.
 
-During CTS, clock buffers and inverters are added to achieve minimal clock skew. These clock buffers are different from normal buffers. CTS buffers have equal rise and fall times. The CTS buffers used in oplane are as shown in figure.
-
-![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/images/cts2.PNG)
+During CTS, clock buffers and inverters are added to achieve minimal clock skew. These clock buffers are different from normal buffers. CTS buffers have equal rise and fall times. 
 
 The following command is used to do CTS.
 
        run_cts
      
-Post CTS timing analsysis can be done by writing a .db file from lef and def file.
+SInce clock tree is built, now the clocks can be propogated. Post CTS timing analsysis can be done by writing a .db file from lef and def file. Read the .db file along with liberty file, cts netlist,propogate the clocks and get the reports.
 
     read_lef /openLANE_flow/designs/picorv32a/runs/03-07_12-55/tmp/merged.lef
-    
-    read_def /openLANE_flow/designs/picorv32a/runs/03-07_12-55/results/cts/picorv32aa.cts.def
-    
+    read_def /openLANE_flow/designs/picorv32a/runs/03-07_12-55/results/cts/picorv32a.cts.def
     write_db pico.cts.db
+    read pico.cts.db
+    read_verilog /openLANE_flow/designs/picorv32a/runs/03-07_12-55/results/synthesis/picorv32a.synthesis_cts.v
+    read_liberty $::env(LIB_SYNTH_COMPLETE) 
+    link_design picorv32a
+    read_sdc ...../src/my_base.sdc
+    set_propagated_clock [all_clocks]
+    report_checks -path_delay min_max -format full_clock_expanded -digits 4
    
    ![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/images/cts5.PNG)
     
-After CTS slack is increased. To reduce slack violation we have to edit the variables for clock buffers and replace the buffers.
+After CTS slack is increased. To reduce slack violation we have to edit the variables for clock buffers and replace the buffers. The CTS buffers used in oplane are as shown in figure.
+
+![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/images/cts2.PNG)
+
+We can replace some of the buffers with higher driving strength buffers there by improving the slack.
 
 ## DAY 5: RTL2GDSII
 
@@ -504,14 +511,32 @@ The following commands perform the synthesis to routing:
   
     8.run_routing
    
-    
-
  ### Power Distribution Network
  
-The primary goal in power network design is to provide enough power lines across a chip to reduce voltage drops from the power pads to the center of the chip. Voltage drops caused by the power network's metal lines coupled with transistor switching currents on the chip cause power supply noises that can affect circuit timing and performance, thus providing a constant challenge for designers of high-performance chips.
+The primary goal in power network design is to provide enough power lines across a chip to reduce voltage drops from the power pads to the center of the chip. Voltage drop is caused by the power network's metal lines coupled with transistor switching currents on the chip cause power supply noises that can affect circuit timing and performance, thus providing a constant challenge for designers of high-performance chips.
 
 To generate the power distribution network use the following command:
 
       gen_pdn
+
+![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/images/afterpdn.PNG)
+
+ The horizontal and vertical blue lines show the power and ground network built.
+ 
+ ![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/images/pdn2.PNG)
       
  ### Routing
+ TritonRoute is used for routing of the designs.It is done in two stages.
+
+1.Global Routing - The input to global router is a floorplan that includes the locations of all fixed and flexible blocks. It generates a loose layout for each net .Assign a list of routing region to each net and without specifying the actual layout of wires .
+
+2.Detailed Routing- Find the actual geometry of each net with in the assigned routing region
+
+To run routing in OpenLANE execute the command
+  
+    run_routing
+    
+![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/images/route1.PNG)
+![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/images/route2.PNG)
+![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/images/route3.PNG)
+![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/images/route4.PNG)
