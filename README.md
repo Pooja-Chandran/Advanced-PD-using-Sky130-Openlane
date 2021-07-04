@@ -457,9 +457,34 @@ The following commands are used after invoking the docker:
 
     ./flow.tcl -interactive
     package require openlane 0.9
-    prep -design picorv32a -tag 04-07_06-44 -overwrite
+    prep -design picorv32a -tag 03-07_15-55 -overwrite
     
-The switch -overwrite overwrites the existing file 04-07_06-44. 
+The switch -overwrite overwrites the existing file 03-07_12-55. Once synthesis is done and timing is under control, we will do the floorplan and placement. The next step will be CTS.
+
+### Clock Tree Synthesis
+The process of connecting clock pins of all sequential cells to the clock net such that clock skew is minimized is called CTS. Clock nets are set as ideal during synthesis and placement. Ideal network means there is no interconnect delys or wire delays are not taken into account. We do so because if we are not setting clock net as ideal, the interconnect delays degrade the clock signal and lead to timing violations, and worst some cells may not get the clock signal.
+
+During CTS, clock buffers and inverters are added to achieve minimal clock skew. These clock buffers are different from normal buffers. CTS buffers have equal rise and fall times. The CTS buffers used in oplane are as shown in figure.
+
+![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/images/cts2.PNG)
+
+The following command is used to do CTS.
+
+       run_cts
+     
+Post CTS timing analsysis can be done by writing a .db file from lef and def file.
+
+    read_lef /openLANE_flow/designs/picorv32a/runs/03-07_12-55/tmp/merged.lef
+    
+    read_def /openLANE_flow/designs/picorv32a/runs/03-07_12-55/results/cts/picorv32aa.cts.def
+    
+    write_db pico.cts.db
+   
+   ![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/images/cts5.PNG)
+    
+After CTS slack is increased. To reduce slack violation we have to edit the variables for clock buffers and replace the buffers.
+
+## DAY 5: RTL2GDSII
 
 The following commands perform the synthesis to routing:
   
@@ -478,4 +503,15 @@ The following commands perform the synthesis to routing:
     7.gen_pdn
   
     8.run_routing
+   
     
+
+ ### Power Distribution Network
+ 
+The primary goal in power network design is to provide enough power lines across a chip to reduce voltage drops from the power pads to the center of the chip. Voltage drops caused by the power network's metal lines coupled with transistor switching currents on the chip cause power supply noises that can affect circuit timing and performance, thus providing a constant challenge for designers of high-performance chips.
+
+To generate the power distribution network use the following command:
+
+      gen_pdn
+      
+ ### Routing
