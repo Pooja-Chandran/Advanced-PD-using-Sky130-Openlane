@@ -512,19 +512,19 @@ The following commands perform the synthesis to routing:
    
  ### Power Distribution Network
  
-
+The powerplanning is done after the floorplan. But for OpenLANE power planning is done before routing.
 
 The PDN feature within OpenLANE will create:
 
-  1.Power ring global to the entire core.
+  1.Power ring - To the entire core.
   
-  2.Power halo local to any preplaced cells.
+  2.Power halo - Only to any preplaced cells.
 
-  3.Power straps to bring power into the center of the chip.
+  3.Power straps - Power to the centre of the chip.
 
-  4.Power rails for the standard cells.
+  4.Power rails -Power for the standard cells.
 
-To generate the power distribution network use the following command:
+To generate the power distribution network the following command is used:
 
      % gen_pdn
 
@@ -540,20 +540,28 @@ The pitch of the metal 1 power rails defines the height of the standard cells
       
  ### Routing
  
+ The interconnections are made in the routing stage. The signal pins are connected using metal wires. The netlist provides the logical connectivity and certain rules need to be followed (DRC) which is technology dependent. Routing is done in two stages.
+  
+  1.Fast route
+  2.Detail route
 
 To run routing in OpenLANE execute the command
   
      % run_routing
-    
+ 
+ ![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/images/route5.PNG) 
+ ![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/images/route6.PNG)
+
 ROUTING_STRATEGY (0-3) uses Triton-13 engine-faster runtime
 
 ROUTING_STRATEGY (14) uses Triton-14 engine-better DRCs, but more runtime
 
+![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/images/routing.PNG)
  We can invoke the magic window  and see the result.
  
  ![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/images/route4.PNG)
  
- So here we can see that all standard cells are placed in the standarc cell rows, they are legalized and routed.
+ So here we can see that all standard cells are placed in the standard cell rows, they are legalized and routed.
  
 ![](https://github.com/Pooja-Chandran/Advanced-PD-using-Sky130-Openlane/blob/main/images/route1.PNG)
 
